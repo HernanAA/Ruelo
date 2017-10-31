@@ -80,7 +80,7 @@ export const filterChanged = ({ text }) => {
         dispatch({ type: PRODUCT_LIST_FETCH });
 
         const newData = getState().products.list.filter((item) => {
-            const itemData = item.name.toUpperCase()
+            const itemData = item.Descripcion.toUpperCase()
             const textData = text.toUpperCase()
             return itemData.indexOf(textData) > -1
         })

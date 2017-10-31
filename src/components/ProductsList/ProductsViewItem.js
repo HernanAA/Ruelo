@@ -8,7 +8,7 @@ const ProductsViewItem = ({ item }) => {
     return (
         <View key={item.Id} style={styles.container}>
             <View style={styles.imageContainer}>
-                {/* <Image source={{ uri: item.image }} style={styles.image} /> */}
+                <Image source={{ uri: 'http://www.ruelo.com.ar/modulos/producto/10385.png' }} style={styles.image} />
             </View >
 
             <View style={styles.bottomContainer}>
@@ -33,12 +33,11 @@ const styles = {
         flexDirection: 'column',
         backgroundColor: Styles.colors.white,
         borderRadius: 3,
-        elevation: 2
+        elevation: 2,
+        flex:1,
     },
     imageContainer: {
-        flex: 1,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
+        flex: 4,
         borderColor: Styles.colors.lighterGray,
         borderWidth: 1,
         overflow: 'hidden'
@@ -49,6 +48,7 @@ const styles = {
 
     },
     bottomContainer: {
+        flex:2,
         flexDirection: 'column',
         justifyContent: 'center',
         paddingHorizontal: 10,

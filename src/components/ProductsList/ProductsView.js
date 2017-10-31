@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, FlatList, Text } from 'react-native'
+import { View, TouchableOpacity, FlatList, Text, ListView, StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux';
 import Styles from '../../styles'
 import { ProductsViewItem } from './ProductsViewItem'
@@ -8,6 +8,15 @@ import { Spinner, Header } from '../common';
 
 class ProductsView extends Component {
 
+    constructor(props) {
+        super(props)
+        var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        var data = Array.apply(null, { length: 20 }).map(Number.call, Number);
+
+        this.state = ({ dataSource: ds.cloneWithRows(data) })
+
+    }
+
     onProductPress(item) {
         this.props.productFetch(item.Id);
         Actions.product();
@@ -15,9 +24,7 @@ class ProductsView extends Component {
 
     renderItem({ item }) {
         return (
-            <TouchableOpacity onPress={this.onProductPress.bind(this, item)}>
-                {<ProductsViewItem item={item} />}
-            </TouchableOpacity>
+            <ProductsViewItem item={item} onPress={this.onProductPress.bind(this, item)} />
         )
     }
 
@@ -26,6 +33,13 @@ class ProductsView extends Component {
     }
 
     render() {
+        // return (
+        //     <ListView contentContainerStyle={styles2.list}
+        //         dataSource={this.state.dataSource}
+        //         renderRow={(rowData) => <Text style={styles2.item}>{rowData}</Text>}
+        //     />
+        //   );
+
         const title = <Header headerText={"Lista de productos"} />;
 
         if (this.props.listFetching) {
@@ -55,9 +69,10 @@ class ProductsView extends Component {
                     <ProductsFilter onFilterChanged={this.onFilterChanged.bind(this)} />
                     <View style={styles.listContainer}>
                         <FlatList
-                        style={{flex:1}}
+                            style={{ flexDirection: 'column' }}
                             data={this.props.filterdList}
                             keyExtractor={(item, index) => item.Id}
+                            numColumns={3}
                             renderItem={this.renderItem.bind(this)}
                         />
                     </View>
@@ -74,9 +89,22 @@ class ProductsView extends Component {
 
 export default ProductsView;
 
+var styles2 = StyleSheet.create({
+    list: {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    },
+    item: {
+        backgroundColor: 'red',
+        margin: 3,
+        width: 300,
+        height: 300,
+    }
+});
+
 const styles = {
     screen: {
-        flex:1
+        flex: 1
     },
     container: {
         flex: 1,
@@ -92,12 +120,12 @@ const styles = {
         alignItems: 'center'
     },
     quantityText: {
-        flex:1,
+        flex: 1,
         backgroundColor: Styles.colors.lightestGray,
         position: 'absolute',
         bottom: 0,
-        left:10,
-        right:10,
+        left: 10,
+        right: 10,
         fontSize: 10,
         color: Styles.colors.black,
         paddingHorizontal: 10,
