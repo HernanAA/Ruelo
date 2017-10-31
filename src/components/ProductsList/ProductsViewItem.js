@@ -14,11 +14,10 @@ const ProductsViewItem = ({ item }) => {
             <View style={styles.bottomContainer}>
                 <View style={styles.line}>
                     <Text style={styles.productName}>{item.Descripcion} </Text>
-                    <Text style={styles.priceText}>Precio Por Noche</Text>
                 </View>
                 <View style={styles.line}>
-                    <View style={styles.stars}>
-                        <Text style={styles.priceText}>Codigo interno {item.Id}</Text>
+                    <View style={styles.internalCode}>
+                        <Text style={styles.internalCodeText}>Codigo interno {item.Id}</Text>
                     </View>
                 </View >
             </View>
@@ -32,25 +31,27 @@ const styles = {
         marginBottom: 10,
         flexDirection: 'column',
         backgroundColor: Styles.colors.white,
-        borderRadius: 3,
+        borderColor: Styles.colors.lighterGray,
+        borderWidth: 1,
         elevation: 2,
         flex:1,
+        margin: 5,
+        maxWidth: Utils.getWindowDimensions().width / 3,
     },
     imageContainer: {
         flex: 4,
-        borderColor: Styles.colors.lighterGray,
-        borderWidth: 1,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderBottomColor: Styles.colors.lighterGray,
+        borderBottomWidth: 1,
     },
     image: {
         flex: 1,
         resizeMode: 'cover',
-
     },
     bottomContainer: {
-        flex:2,
+        flex:1.5,
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         paddingHorizontal: 10,
         paddingVertical: 5,
     },
@@ -68,15 +69,13 @@ const styles = {
         fontSize: 16,
         color: Styles.colors.black,
         fontWeight: '500',
-        maxWidth: Utils.getWindowDimensions().width * 0.7,
     },
-    stars: {
+    internalCode: {
         flexDirection: 'row',
         alignItems: 'flex-start'
     },
-    priceValue: {
+    internalCodeText: {
         fontSize: 13,
-        color: Styles.colors.yellow,
         fontWeight: '500'
     },
 }
