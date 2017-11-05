@@ -5,10 +5,12 @@ import Utils from '../../helpers/utils';
 import { Stars } from '../common';
 
 const ProductsViewItem = ({ item }) => {
+    // <Image source={{ uri: 'http://www.ruelo.com.ar/modulos/producto/10385.png' }} 
+    // style={styles.image} />
     return (
         <View key={item.Id} style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image source={{ uri: 'http://www.ruelo.com.ar/modulos/producto/10385.png' }} style={styles.image} />
+                <Image source={{ uri: item.urlImage }} style={styles.image} />
             </View >
 
             <View style={styles.bottomContainer}>
@@ -34,7 +36,7 @@ const styles = {
         borderColor: Styles.colors.lighterGray,
         borderWidth: 1,
         elevation: 2,
-        flex:1,
+        flex: 1,
         margin: 5,
         maxWidth: Utils.getWindowDimensions().width / 3,
     },
@@ -49,7 +51,7 @@ const styles = {
         resizeMode: 'cover',
     },
     bottomContainer: {
-        flex:1.5,
+        flex: 1.5,
         flexDirection: 'column',
         justifyContent: 'space-between',
         paddingHorizontal: 10,

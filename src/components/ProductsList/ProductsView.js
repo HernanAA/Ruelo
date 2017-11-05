@@ -3,19 +3,10 @@ import { View, TouchableOpacity, FlatList, Text, ListView, StyleSheet } from 're
 import { Actions } from 'react-native-router-flux';
 import Styles from '../../styles'
 import { ProductsViewItem } from './ProductsViewItem'
-import { ProductsFilter } from './ProductsFilter'
+import { ProductsSearch } from './ProductsSearch'
 import { Spinner, Header } from '../common';
 
 class ProductsView extends Component {
-
-    constructor(props) {
-        super(props)
-        var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        var data = Array.apply(null, { length: 20 }).map(Number.call, Number);
-
-        this.state = ({ dataSource: ds.cloneWithRows(data) })
-
-    }
 
     onProductPress(item) {
         this.props.productFetch(item.Id);
@@ -28,18 +19,11 @@ class ProductsView extends Component {
         )
     }
 
-    onFilterChanged(text) {
-        this.props.filterChanged({ text });
+    onSearchChanged(text) {
+        this.props.searchChanged({ text });
     }
 
     render() {
-        // return (
-        //     <ListView contentContainerStyle={styles2.list}
-        //         dataSource={this.state.dataSource}
-        //         renderRow={(rowData) => <Text style={styles2.item}>{rowData}</Text>}
-        //     />
-        //   );
-
         const title = <Header headerText={"Lista de productos"} />;
 
         if (this.props.listFetching) {
@@ -66,7 +50,7 @@ class ProductsView extends Component {
             <View style={styles.screen}>
                 {title}
                 <View style={styles.container}>
-                    <ProductsFilter onFilterChanged={this.onFilterChanged.bind(this)} />
+                    <ProductsSearch onSearchChanged={this.onSearchChanged.bind(this)} />
                     <View style={styles.listContainer}>
                         <FlatList
                             style={{ flexDirection: 'column' }}

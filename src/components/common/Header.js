@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Styles from '../../styles'
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 
 const Header = (props) => {
@@ -9,11 +9,17 @@ const Header = (props) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.navBarLeftButton}
         activeOpacity={0.2}
         onPress={() => { Actions.pop() }}>
         <Icon name='arrow-back' size={20} color={Styles.colors.orange} />
+      </TouchableOpacity> */}
+      <TouchableOpacity
+        style={styles.navBarLeftButton}
+        activeOpacity={0.2}
+        onPress={() => { Actions.drawerOpen() }}>
+        <Icon name='reorder' size={25} color={Styles.colors.orange} />
       </TouchableOpacity>
       <Text style={textStyle}>{props.headerText}</Text>
     </View>
@@ -25,19 +31,19 @@ const styles = {
     backgroundColor: Styles.colors.white,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginBottom:4,
+    marginBottom: 4,
     height: 45,
     paddingLeft: 20,
     flexDirection: 'row',
     elevation: 5
   },
-  navBarLeftButton:{
+  navBarLeftButton: {
     marginRight: 20,
   },
   textStyle: {
     fontSize: 13,
     fontWeight: '400',
-    textShadowOffset: {width: 0, height: 1},
+    textShadowOffset: { width: 0, height: 1 },
     color: Styles.colors.black,
   }
 };

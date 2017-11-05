@@ -75,7 +75,7 @@ export const productFetch = (id) => {
     }
 };
 
-export const filterChanged = ({ text }) => {
+export const searchChanged = ({ text }) => {
     return (dispatch, getState) => {
         dispatch({ type: PRODUCT_LIST_FETCH });
 

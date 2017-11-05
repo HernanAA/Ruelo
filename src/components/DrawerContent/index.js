@@ -1,0 +1,37 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Image, StyleSheet, Text, View, ViewPropTypes, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { selectedBrandChanged } from '../../actions/ProductFiltersActions';
+import { productListFetch } from '../../actions/ProductActions';
+import Utils from '../../helpers/utils'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import Styles from '../../styles'
+import { Actions } from 'react-native-router-flux';
+import DrawerView from './DrawerView'
+
+class DrawerContent extends Component {
+
+  render() {
+    return (
+      <View style={styles.screen}>
+          <DrawerView {...this.props} />
+      </View>
+  );
+  }
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+});
+
+const mapStateToProps = ({ productFilters }) => {
+  return { brandsList, selectedBrand } = productFilters;
+};
+
+export default connect(mapStateToProps, {
+  selectedBrandChanged,
+  productListFetch
+})(DrawerContent);

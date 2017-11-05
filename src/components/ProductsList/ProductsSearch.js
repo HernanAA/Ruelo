@@ -3,12 +3,12 @@ import Styles from '../../styles'
 import { View, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const ProductsFilter = (props) => {
+const ProductsSearch = (props) => {
 
     return (
         <View style={styles.container}>
             <TextInput style={styles.inputText}
-                onChangeText={props.onFilterChanged}
+                onChangeText={props.onSearchChanged}
                 underlineColorAndroid={'transparent'}
             >
             </TextInput>
@@ -44,4 +44,4 @@ const styles = {
 
 }
 
-export { ProductsFilter }
+export { ProductsSearch }

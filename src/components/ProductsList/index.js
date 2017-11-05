@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux';
-import { productListFetch, productFetch, filterChanged } from '../../actions/ProductActions';
+import { productListFetch, productFetch, searchChanged } from '../../actions/ProductActions';
 import ProductsView from './ProductsView'
 
 class ProductList extends Component {
@@ -33,6 +33,6 @@ const mapStateToProps = ({ products }) => {
 export default connect(mapStateToProps, { 
         productListFetch, 
         productFetch,
-        filterChanged 
+        searchChanged 
     })(ProductList);
 
