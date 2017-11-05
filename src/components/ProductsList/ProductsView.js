@@ -20,6 +20,7 @@ class ProductsView extends Component {
     }
 
     onSearchChanged(text) {
+        //text = 'cereal fort manz'
         this.props.searchChanged({ text });
     }
 

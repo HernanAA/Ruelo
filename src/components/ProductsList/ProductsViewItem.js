@@ -10,12 +10,12 @@ const ProductsViewItem = ({ item }) => {
     return (
         <View key={item.Id} style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image source={{ uri: item.urlImage }} style={styles.image} />
+                <Image source={{ uri: "http://" + item.urlImage }} style={styles.image} />
             </View >
 
             <View style={styles.bottomContainer}>
                 <View style={styles.line}>
-                    <Text style={styles.productName}>{item.Descripcion} </Text>
+                    <Text style={styles.productName} numberOfLines={2} ellipsizeMode ={'tail'}>{item.Descripcion} </Text>
                 </View>
                 <View style={styles.line}>
                     <View style={styles.internalCode}>
@@ -68,7 +68,7 @@ const styles = {
         color: Styles.colors.lighterGray,
     },
     productName: {
-        fontSize: 16,
+        fontSize: 14,
         color: Styles.colors.black,
         fontWeight: '500',
     },

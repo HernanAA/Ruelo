@@ -9,17 +9,11 @@ const Header = (props) => {
 
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity
-        style={styles.navBarLeftButton}
-        activeOpacity={0.2}
-        onPress={() => { Actions.pop() }}>
-        <Icon name='arrow-back' size={20} color={Styles.colors.orange} />
-      </TouchableOpacity> */}
       <TouchableOpacity
         style={styles.navBarLeftButton}
         activeOpacity={0.2}
         onPress={() => { Actions.drawerOpen() }}>
-        <Icon name='reorder' size={25} color={Styles.colors.orange} />
+        <Icon name='reorder' size={25} color={Styles.colors.orange} style={{marginTop:2}}/>
       </TouchableOpacity>
       <Text style={textStyle}>{props.headerText}</Text>
     </View>

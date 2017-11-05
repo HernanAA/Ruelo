@@ -14,34 +14,24 @@ export default class DrawerView extends Component {
 
   render() {
     var iconSize = 20;
-  
+
     return (
       <View style={{ flex: 1 }}>
-        <Multiselect {...this.props} />
-        {/* <MultiSelect
-          items={this.props.brandsList}
-          uniqueKey="id"
-          ref={(comp) => { this.multiSelect = comp }}
-          onSelectedItemsChange={(itemValue) => this.props.selectedBrandChanged(itemValue)}
-          selectText={"seleccionadas"}
-          selectedItems={this.props.selectedBrand}  
-          selectText="Seleccione las Marcas"
-          searchInputPlaceholderText="Buscar marcas..."
-          altFontFamily="ProximaNova-Light"
-          tagRemoveIconColor="#CCC"
-          tagBorderColor="#CCC"
-          tagTextColor="#CCC"
-          selectedItemTextColor="#CCC"
-          selectedItemIconColor="#CCC"
-          itemTextColor="#000"
-          searchInputStyle={{ color: '#CCC' }}
-          submitButtonColor="#CCC"
-          submitButtonText="Aceptar"
-        /> */}
-      
+        
+          <Multiselect {...this.props}
+            
+            uniqueKey={"id"}
+            onSelectedItemsChange={this.props.selectedBrandChanged}
+            selectedItems={this.props.selectedBrand}
+            selectText={"Seleccione las Marcas"}
+            searchInputPlaceholderText={"Buscar marcas..."}
+          />
+    
+        
+
         <View>
-          <Button onPress={()=> this.props.productListFetch()} 
-          title={"Buscar"}/>
+          <Button onPress={() => this.props.productListFetch()}
+            title={"Buscar"} />
         </View>
       </View>
 

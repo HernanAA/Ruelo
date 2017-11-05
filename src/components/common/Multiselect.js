@@ -4,14 +4,15 @@ import MultiSelect from 'react-native-multiple-select';
 
 const Multiselect = ( props ) => {
   return (
-    <View style={styles.spinnerStyle}>
+    <View style={styles.container}>
       <MultiSelect
+          fixedHeight
           items={props.brandsList}
           uniqueKey="id"
           //ref={(comp) => { this.multiSelect = comp }}
-          onSelectedItemsChange={(itemValue) => props.selectedBrandChanged(itemValue)}
+          onSelectedItemsChange={(itemValue) => props.onSelectedItemsChange(itemValue)}
           selectText={"seleccionadas"}
-          selectedItems={props.selectedBrand}  
+          selectedItems={props.selectedItems}  
           selectText="Seleccione las Marcas"
           searchInputPlaceholderText="Buscar marcas..."
           altFontFamily="ProximaNova-Light"
@@ -30,8 +31,8 @@ const Multiselect = ( props ) => {
 };
 
 const styles = {
-  spinnerStyle: {
-    flex: 1
+  container: {
+    height: 100,
   }
 };
 

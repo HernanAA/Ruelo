@@ -15,13 +15,13 @@ Number.prototype.thousandDot = function(){
 
 const Style = {
     flex: 1, 
-    marginTop: Platform.OS === 'ios' ? 20 : 0 
+    paddingTop: Platform.OS === 'ios' ? 20 : 0 
 }
 
 const App = () => (
     <Provider store={store}>
         <View style={Style}>
-            <StatusBar backgroundColor={'black'} />
+            <StatusBar hidden />
             <Router />
         </View>
     </Provider>
