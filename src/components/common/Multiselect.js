@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 
 const Multiselect = ( props ) => {
   return (
     <View style={styles.container}>
       <MultiSelect
-          fixedHeight
+          style={{}}
+          stickyHeaderIndices={[0]}
+          //fixedHeight
+          //hideSubmitButton
+          //searchInputStyle={styles.searchInputStyle}
           items={props.brandsList}
           uniqueKey="id"
           //ref={(comp) => { this.multiSelect = comp }}
@@ -32,8 +36,16 @@ const Multiselect = ( props ) => {
 
 const styles = {
   container: {
-    height: 100,
+    flex:1,
+    
+    //height: 400,
+    //backgroundColor:'red'
+  },
+  searchInputStyle:{
+    position:'absolute',
+    top:10,
   }
+
 };
 
 export { Multiselect };

@@ -17,7 +17,7 @@ export default class DrawerView extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        
+        <View style={{ height:200 }}>
           <Multiselect {...this.props}
             
             uniqueKey={"id"}
@@ -26,11 +26,11 @@ export default class DrawerView extends Component {
             selectText={"Seleccione las Marcas"}
             searchInputPlaceholderText={"Buscar marcas..."}
           />
-    
+        </View>
         
 
-        <View>
-          <Button onPress={() => this.props.productListFetch()}
+        <View style={styles.buttonContainer}>
+          <Button  onPress={() => this.props.productListFetch()}
             title={"Buscar"} />
         </View>
       </View>
@@ -43,43 +43,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
-  logoContainer: {
-    padding: 10,
-    flex: 5,
+  buttonContainer:{
+    position:'absolute',
+    bottom: 10,
   },
-
-  logo: {
-    height: undefined,
-    width: undefined,
-    resizeMode: 'contain',
-    flex: 1,
-  },
-
-
-  menuItem: {
-    flexDirection: 'row',
-    paddingLeft: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
-    marginTop: 10,
-    alignItems: 'center',
-    flex: 2,
-  },
-
-  menuIconContainer: {
-    width: 40,
-    alignItems: 'center',
-    marginRight: 10,
-  },
-
-  menuItemIcon: {
-    color: Styles.colors.saemBlue,
-  },
-
-  menuItemText: {
-    color: Styles.colors.black,
-    fontSize: 17,
-  },
+ 
 });
 
