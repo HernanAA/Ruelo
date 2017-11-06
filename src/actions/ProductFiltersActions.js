@@ -19,7 +19,7 @@ export const selectedBrandChanged = (selected) => {
 export const selectedCategoryChanged = (selected) => {
     return ({
         type: SELECTED_CATEGORY_CHANGED,
-        payload: selectedBrand 
+        payload: selected 
     });
 }
 

@@ -19,7 +19,7 @@ export default class DrawerView extends Component {
       <View style={{ flex: 1 }}>
         <View style={{ height:200 }}>
           <Multiselect {...this.props}
-            
+            items={this.props.brandsList}
             uniqueKey={"id"}
             onSelectedItemsChange={this.props.selectedBrandChanged}
             selectedItems={this.props.selectedBrand}
@@ -27,7 +27,26 @@ export default class DrawerView extends Component {
             searchInputPlaceholderText={"Buscar marcas..."}
           />
         </View>
-        
+        <View style={{ height:200 }}>
+          <Multiselect {...this.props}
+            items={this.props.categoryList}
+            uniqueKey={"id"}
+            onSelectedItemsChange={this.props.selectedCategoryChanged}
+            selectedItems={this.props.selectedCategory}
+            selectText={"Seleccione los Rubros"}
+            searchInputPlaceholderText={"Buscar Rubros..."}
+          />
+        </View>
+        <View style={{ height:200 }}>
+          <Multiselect {...this.props}
+            items={this.props.subCategoryList}
+            uniqueKey={"id"}
+            onSelectedItemsChange={this.props.selectedSubCategoryChanged}
+            selectedItems={this.props.selectedSubCategory}
+            selectText={"Seleccione los SubRubros"}
+            searchInputPlaceholderText={"Buscar SubRubros..."}
+          />
+        </View>
 
         <View style={styles.buttonContainer}>
           <Button  onPress={() => this.props.productListFetch()}

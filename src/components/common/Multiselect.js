@@ -6,19 +6,13 @@ const Multiselect = ( props ) => {
   return (
     <View style={styles.container}>
       <MultiSelect
-          style={{}}
-          stickyHeaderIndices={[0]}
-          //fixedHeight
-          //hideSubmitButton
-          //searchInputStyle={styles.searchInputStyle}
-          items={props.brandsList}
+          items={props.items}
           uniqueKey="id"
-          //ref={(comp) => { this.multiSelect = comp }}
           onSelectedItemsChange={(itemValue) => props.onSelectedItemsChange(itemValue)}
           selectText={"seleccionadas"}
           selectedItems={props.selectedItems}  
-          selectText="Seleccione las Marcas"
-          searchInputPlaceholderText="Buscar marcas..."
+          selectText={props.selectText}
+          searchInputPlaceholderText={props.searchInputPlaceholderText}
           altFontFamily="ProximaNova-Light"
           tagRemoveIconColor="#CCC"
           tagBorderColor="#CCC"
@@ -29,6 +23,7 @@ const Multiselect = ( props ) => {
           searchInputStyle={{ color: '#CCC' }}
           submitButtonColor="#CCC"
           submitButtonText="Aceptar"
+          maxHeight={160} // este valor debe ser el height de todo el componente menos 40 (para el submit de abajo)
         />
     </View>
   );
@@ -37,9 +32,6 @@ const Multiselect = ( props ) => {
 const styles = {
   container: {
     flex:1,
-    
-    //height: 400,
-    //backgroundColor:'red'
   },
   searchInputStyle:{
     position:'absolute',
