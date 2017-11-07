@@ -10,6 +10,10 @@ var api = {
 		return this.baseAddress + "producto/"
 		//return this.filterAddress 
 	},
+
+	getBrandListlUrl: function(){
+		return this.baseAddress + "marcas/"
+	},
 }
 
 module.exports = api;
