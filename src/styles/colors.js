@@ -13,7 +13,7 @@ var palette = {
 	turquoise: '#3590A3',
 	darkTurquoise: '#005D77',
 	red: '#FF3A54',
-	blue: '#00275B',
+	blue: '#215191',
 	lightBlue: '#3F79B3', 
 	lighterBlue: '#51A7D8', 
 	lightestBlue: '#99d9f4', 
@@ -26,6 +26,7 @@ var palette = {
 	greenBlue: '#0C3D5D',
 	yellow: '#FFBF00',
 	orange:'#FF7900',
+	darkestGray: '#A9A9A9',
     
 };
 

@@ -130,8 +130,8 @@ const INITIAL_STATE = {
   brandFetching: false,
   categoryFetching: false,
   subCategoryFetching: false,
-  selectedCode:0,
-  selectedDescription:0,
+  selectedCode:'',
+  selectedDescription:'',
 };
 
 export default (state = INITIAL_STATE, action) => {
