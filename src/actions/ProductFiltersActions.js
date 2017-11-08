@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import api from './../helpers/api'
-import Utils from './Utils'
+import { genericListFetch } from './UtilActions'
 
 import {
     BRAND_LIST_FETCH,
@@ -27,15 +27,12 @@ export const selectedBrandChanged = (selected) => {
 }
 
 export const productListFetch = () => {
-
     return (dispatch) => {
-
-        Utils.genericListFetch(
-            dispatch,
+        return dispatch(genericListFetch(
             BRAND_LIST_FETCH,
             BRAND_LIST_FETCH_SUCCESS,
             BRAND_LIST_FETCH_FAIL,
-            api.getBrandListlUrl())
+            api.getBrandListlUrl()))
     }
 };
 

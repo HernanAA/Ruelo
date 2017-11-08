@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import api from './../helpers/api'
-import genericListFetch  from './Utils'
+import { genericListFetch } from './UtilActions'
 
 import {
     PRODUCT_LIST_FETCH,
@@ -14,45 +14,17 @@ import {
 } from './types';
 
 export const productListFetch = () => {
+    return (dispatch) => {
+        PRODUCT_LIST_FETCH_SUCCESS
+    }
 
     return (dispatch) => {
-
-        genericListFetch(
-            dispatch,
+        return dispatch(genericListFetch(
             PRODUCT_LIST_FETCH,
             PRODUCT_LIST_FETCH_SUCCESS,
             PRODUCT_LIST_FETCH_FAIL,
-            api.getProductListlUrl())
+            api.getProductListlUrl()))
     }
-
-    // return (dispatch) => {
-
-    //     dispatch({ type: PRODUCT_LIST_FETCH });
-
-    //     var url = api.getProductListlUrl();
-    //     fetch(url, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json',
-    //         }
-    //     })
-    //         .then((response) => {
-    //             return response.json()
-    //         })
-    //         .then((rjson) => {
-    //             if (rjson !== null) {
-    //                 dispatch({ type: PRODUCT_LIST_FETCH_SUCCESS, payload: { list: rjson } });
-    //             }
-    //             else {
-    //                 dispatch({ type: PRODUCT_LIST_FETCH_SUCCESS, payload: { list: [] } });
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.error(error)
-    //             dispatch({ type: PRODUCT_LIST_FETCH_FAIL, payload: { error: 'Ha ocurrido un error al cargar los productos.' } })
-    //         })
-    // }
 };
 
 export const productFetch = (id) => {

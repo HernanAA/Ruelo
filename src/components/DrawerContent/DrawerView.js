@@ -17,7 +17,7 @@ export default class DrawerView extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ height:200 }}>
+        <View style={styles.multiselectContainer(this.props.selectedBrand.length)}>
           <Multiselect {...this.props}
             items={this.props.brandsList}
             uniqueKey={"id"}
@@ -27,7 +27,7 @@ export default class DrawerView extends Component {
             searchInputPlaceholderText={"Buscar marcas..."}
           />
         </View>
-        <View style={{ height:200 }}>
+        <View style={styles.multiselectContainer(this.props.selectedCategory.length)}>
           <Multiselect {...this.props}
             items={this.props.categoryList}
             uniqueKey={"id"}
@@ -37,7 +37,7 @@ export default class DrawerView extends Component {
             searchInputPlaceholderText={"Buscar Rubros..."}
           />
         </View>
-        <View style={{ height:200 }}>
+        <View style={styles.multiselectContainer(this.props.selectedSubCategory.length)}>
           <Multiselect {...this.props}
             items={this.props.subCategoryList}
             uniqueKey={"id"}
@@ -58,7 +58,7 @@ export default class DrawerView extends Component {
   }
 }
 //{this.multiSelect.getSelectedItemsExt(selectedItems)}
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
   },
@@ -66,6 +66,18 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom: 10,
   },
+  multiselectContainer: (selectedItems) => {
+    var style = {
+      height:200, 
+      backgroundColor: Styles.colors.lightestGray 
+    }
+    if (selectedItems > 0){
+      style.backgroundColor = Styles.colors.white;
+      style.borderBottomWidth = 2;
+      style.borderBottomColor = Styles.colors.lightestGray;
+    }
+    return style;
+  }
  
-});
+};
 

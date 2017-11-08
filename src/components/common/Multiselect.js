@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ActivityIndicator, ScrollView } from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
+import Styles from '../../styles'
 
 const Multiselect = ( props ) => {
   return (
@@ -20,8 +21,8 @@ const Multiselect = ( props ) => {
           selectedItemTextColor="#CCC"
           selectedItemIconColor="#CCC"
           itemTextColor="#000"
-          searchInputStyle={{ color: '#CCC' }}
-          submitButtonColor="#CCC"
+          searchInputStyle={{}}
+          submitButtonColor={Styles.colors.darkGray}
           submitButtonText="Aceptar"
           maxHeight={160} // este valor debe ser el height de todo el componente menos 40 (para el submit de abajo)
         />
