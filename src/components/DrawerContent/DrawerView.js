@@ -91,6 +91,8 @@ const styles = {
   buttonContainer: {
     position: 'absolute',
     bottom: 10,
+    left: 10,
+    right: 10
   },
   multiselectContainer: (selectedItems) => {
     var style = {
