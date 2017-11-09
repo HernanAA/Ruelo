@@ -83,7 +83,7 @@ export default class DrawerView extends Component {
     );
   }
 }
-//{this.multiSelect.getSelectedItemsExt(selectedItems)}
+
 const styles = {
   container: {
     flex: 1,
@@ -92,7 +92,7 @@ const styles = {
     position: 'absolute',
     bottom: 10,
     left: 10,
-    right: 10
+    right: 10,
   },
   multiselectContainer: (selectedItems) => {
     var style = {
