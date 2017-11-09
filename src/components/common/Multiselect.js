@@ -15,15 +15,18 @@ const Multiselect = ( props ) => {
           selectText={props.selectText}
           searchInputPlaceholderText={props.searchInputPlaceholderText}
           altFontFamily="ProximaNova-Light"
-          tagRemoveIconColor="#CCC"
-          tagBorderColor="#CCC"
-          tagTextColor="#CCC"
-          selectedItemTextColor="#CCC"
-          selectedItemIconColor="#CCC"
+          tagRemoveIconColor={Styles.colors.gray}
+          tagBorderColor={Styles.colors.gray}
+          tagTextColor={Styles.colors.gray}
+          selectedItemTextColor={Styles.colors.gray}
+          selectedItemIconColor={Styles.colors.gray}
           itemTextColor="#000"
           searchInputStyle={{}}
           submitButtonColor={Styles.colors.darkGray}
           submitButtonText="Aceptar"
+          //Color texto Titulo.
+          textColor={props.selectedItems.length === 0 ? Styles.colors.gray : Styles.colors.darkestGray} 
+          fontSize={17} //Tamaño texto titulo cuando no esta desplegada la lista
           maxHeight={160} // este valor debe ser el height de todo el componente menos 40 (para el submit de abajo)
         />
     </View>
