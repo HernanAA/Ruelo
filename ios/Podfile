@@ -1,5 +1,5 @@
 
 
-target ‘Almundo’ do
+target Ruelo do
   pod 'GoogleMaps' 
 end
