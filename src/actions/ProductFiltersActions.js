@@ -22,14 +22,45 @@ import {
     PRODUCT_LIST_FETCH_FAIL,
 } from './types';
 
-const makeFilteredUrl = (dispatch) => {
-    var url = api.getFilterProductListlUrl();
-    const filterId = api.getFilterId();
+const makeFilteredUrl = (filter) => {
+        //"http://www.ruelo.com.ar/api/api/producto/0?Id=10048&Descripcion=0&Codigo=0&IdMarca=0&IdRubro=0&IdSubrubro=0",
+        var url = api.getFilterProductListlUrl();
+        const filterId = api.getFilterId() + "0";
+        url = url + filterId;
+
+        if (filter.selectedDescription !== '') {
+            const description = api.getFilterDescription();
+            url = url + description + filter.selectedDescription;
+        }
+
+        if (filter.selectedCode !== '') {
+            const code = api.getFilterCode();
+            url = url + code + filter.selectedCode;
+        }
+
+        const brand = api.getFilterBrandId();
+        filter.selectedBrand.map((item) => {
+            url = url + brand + item.id;
+        })
+
+        const category = api.getFilterCategoryId();
+        filter.selectedCategory.map((item) => {
+            url = url + category + item.id;
+        })
+
+        const subCategory = api.getFilterSubcategoryId();
+        filter.selectedSubCategory.map((item) => {
+            url = url + subCategory + item.id;
+        })
+        console.log(url)
+        return url;
+    
 }
 
 export const filteredProductListFetch = () => {
     return (dispatch, getState) => {
-        const url = makeFilteredUrl(dispatch)
+        
+        const url = makeFilteredUrl(getState().productFilters)
 
         return dispatch(genericListFetch(
             PRODUCT_LIST_FETCH,

@@ -22,7 +22,7 @@ export default class DrawerView extends Component {
           '#4c669f', '#3b5998',
           Styles.colors.darkerBlue]}
           style={styles.headerContainer}>
-          <Text style={styles.headerText}>Ruelo Ayacucho S.A</Text>
+          <Text style={styles.headerText}></Text>
         </LinearGradient>
 
         <InputWithIcon
