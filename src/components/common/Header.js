@@ -13,7 +13,7 @@ const Header = (props) => {
         style={styles.navBarLeftButton}
         activeOpacity={0.2}
         onPress={() => { Actions.drawerOpen() }}>
-        <Icon name='reorder' size={25} color={Styles.colors.orange} style={{marginTop:2}}/>
+        <Icon name='reorder' size={25} color={Styles.colors.lighterBlue} style={{marginTop:2}}/>
       </TouchableOpacity>
       <Text style={textStyle}>{props.headerText}</Text>
     </View>

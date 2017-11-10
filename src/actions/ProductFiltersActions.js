@@ -16,8 +16,28 @@ import {
     SUBCATEGORY_LIST_FETCH_FAIL,
     SELECTED_SUBCATEGORY_CHANGED,
     SELECTED_CODE_CHANGED,
-    SELECTED_DESCRIPTION_CHANGED
+    SELECTED_DESCRIPTION_CHANGED,
+    PRODUCT_LIST_FETCH,
+    PRODUCT_LIST_FETCH_SUCCESS,
+    PRODUCT_LIST_FETCH_FAIL,
 } from './types';
+
+const makeFilteredUrl = (dispatch) => {
+    var url = api.getFilterProductListlUrl();
+    const filterId = api.getFilterId();
+}
+
+export const filteredProductListFetch = () => {
+    return (dispatch, getState) => {
+        const url = makeFilteredUrl(dispatch)
+
+        return dispatch(genericListFetch(
+            PRODUCT_LIST_FETCH,
+            PRODUCT_LIST_FETCH_SUCCESS,
+            PRODUCT_LIST_FETCH_FAIL,
+            url))
+    }
+};
 
 export const selectedBrandChanged = (selected) => {
     return ({
@@ -26,7 +46,7 @@ export const selectedBrandChanged = (selected) => {
     });
 }
 
-export const productListFetch = () => {
+export const brandListFetch = () => {
     return (dispatch) => {
         return dispatch(genericListFetch(
             BRAND_LIST_FETCH,

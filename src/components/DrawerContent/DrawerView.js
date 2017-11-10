@@ -74,7 +74,7 @@ export default class DrawerView extends Component {
 
         <View style={styles.buttonContainer}>
           <Button style={styles.button} 
-            onPress={() => this.props.productListFetch()}
+            onPress={() => this.props.filteredProductListFetch()}
             title={"Buscar"} />
         </View>
       </ScrollView>
@@ -107,13 +107,9 @@ const styles = {
   buttonContainer: {
     height: 50,
     paddingTop: 10,
-    //backgroundColor: Styles.colors.red,
   },
   button:{
-    // height: 25,
-    // marginTop: 10,
-    // marginHorizontal: 5,
-    
+    backgroundColor: Styles.colors.lighterBlue
   },
   multiselectContainer: (selectedItems) => {
     var style = {

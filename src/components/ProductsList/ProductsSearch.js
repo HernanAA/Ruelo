@@ -15,7 +15,7 @@ const ProductsSearch = (props) => {
             <View style={styles.iconContainer}>
                 <Icon
                     name='search' size={15}
-                    color={Styles.colors.orange}
+                    color={Styles.colors.lighterBlue}
                 />
             </View>
         </View>

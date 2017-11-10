@@ -9,7 +9,7 @@ import {
   selectedDescriptionChanged,
   selectedSubCategoryChanged,
 } from '../../actions/ProductFiltersActions';
-import { productListFetch } from '../../actions/ProductActions';
+import { filteredProductListFetch } from '../../actions/ProductFiltersActions';
 import Utils from '../../helpers/utils'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Styles from '../../styles'
@@ -48,5 +48,5 @@ export default connect(mapStateToProps, {
   selectedCodeChanged,
   selectedDescriptionChanged,
   selectedSubCategoryChanged,
-  productListFetch
+  filteredProductListFetch
 })(DrawerContent);
