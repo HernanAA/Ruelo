@@ -2,6 +2,7 @@ var palette = {
 	tan: '#FFEFE8',
 	transparent: 'transparent',
 	white: '#ffffff',
+	whiteYellow:'#F5F6CE',
 	black: '#000000',
 	lightTurquoise: '#34C6D3',
 	gray: '#CCCCCC',

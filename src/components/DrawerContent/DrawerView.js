@@ -4,23 +4,29 @@ import {
   Image,
   StyleSheet, Text, View,
   ViewPropTypes, TouchableOpacity, Button,
-  TextInput
+  TextInput, ScrollView
 } from 'react-native';
 import Utils from '../../helpers/utils'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconIonic from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../../styles'
 import { Multiselect, InputWithIcon } from '../common';
 
 export default class DrawerView extends Component {
 
   render() {
-    var iconSize = 20;
-
     return (
-      <View style={{ flex: 1 }}>
-        <InputWithIcon 
-          style={{ marginTop: 10 }}
+      <ScrollView style={styles.container}>
+        <LinearGradient colors={[Styles.colors.darkerBlue,
+          '#4c669f', '#3b5998',
+          Styles.colors.darkerBlue]}
+          style={styles.headerContainer}>
+          <Text style={styles.headerText}>Ruelo Ayacucho S.A</Text>
+        </LinearGradient>
+
+        <InputWithIcon
+          style={{ height: 50 }}
           {...this.props}
           placeholder={"Código"}
           fieldText={this.props.selectedCode}
@@ -28,7 +34,7 @@ export default class DrawerView extends Component {
         />
 
         <InputWithIcon
-          style={{ marginVertical: 10 }}
+          style={styles.inputWithIcon}
           {...this.props}
           placeholder={"Descripción"}
           fieldText={this.props.selectedDescription}
@@ -66,13 +72,12 @@ export default class DrawerView extends Component {
           />
         </View>
 
-
-
         <View style={styles.buttonContainer}>
-          <Button onPress={() => this.props.productListFetch()}
+          <Button style={styles.button} 
+            onPress={() => this.props.productListFetch()}
             title={"Buscar"} />
         </View>
-      </View>
+      </ScrollView>
 
     );
   }
@@ -81,12 +86,34 @@ export default class DrawerView extends Component {
 const styles = {
   container: {
     flex: 1,
+    backgroundColor: Styles.colors.darkGray
+  },
+  headerContainer: {
+    height: 132,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  headerText: {
+    fontSize: 40,
+    fontWeight: '900',
+    color: Styles.colors.whiteYellow,
+    paddingVertical: 20,
+  },
+  inputWithIcon: {
+    height: 50,
+    marginVertical: 10
   },
   buttonContainer: {
-    position: 'absolute',
-    bottom: 10,
-    left: 10,
-    right: 10,
+    height: 50,
+    paddingTop: 10,
+    //backgroundColor: Styles.colors.red,
+  },
+  button:{
+    // height: 25,
+    // marginTop: 10,
+    // marginHorizontal: 5,
+    
   },
   multiselectContainer: (selectedItems) => {
     var style = {

@@ -30,9 +30,6 @@ const InputWithIcon = (props) => {
 };
 
 const styles = {
-    container: {
-        flex: 1,
-    },
     inputGroup: (text) => {
         var style = {
           flexDirection: 'row',

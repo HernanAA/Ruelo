@@ -74,19 +74,6 @@ class ProductsView extends Component {
 
 export default ProductsView;
 
-var styles2 = StyleSheet.create({
-    list: {
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-    },
-    item: {
-        backgroundColor: 'red',
-        margin: 3,
-        width: 300,
-        height: 300,
-    }
-});
-
 const styles = {
     screen: {
         flex: 1
