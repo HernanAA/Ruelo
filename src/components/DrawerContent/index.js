@@ -38,7 +38,8 @@ const mapStateToProps = ({ productFilters }) => {
     brandsList, selectedBrand,
     categoryList, selectedCategory,
     subCategoryList, selectedSubCategory,
-    selectedCode, selectedDescription
+    selectedCode, selectedDescription,
+    brandFetching, categoryFetching, subCategoryFetching
   } = productFilters;
 };
 

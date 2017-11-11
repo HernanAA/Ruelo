@@ -14,9 +14,9 @@ import {
 } from './types';
 
 export const productListFetch = () => {
-    // return (dispatch) => {
-    //     PRODUCT_LIST_FETCH_SUCCESS
-    // }
+    return (dispatch) => {
+        PRODUCT_LIST_FETCH_SUCCESS
+    }
 
     return (dispatch) => {
         return dispatch(genericListFetch(

@@ -9,7 +9,7 @@ export const PRODUCT_SELECT = 'product_select';
 /******************************/
 export const BRAND_LIST_FETCH = 'brand_list_fetch';
 export const BRAND_LIST_FETCH_SUCCESS = 'brand_list_fetch_success';
-export const BRAND_LIST_FETCH_FAI = 'brand_list_fetch_fail';
+export const BRAND_LIST_FETCH_FAIL = 'brand_list_fetch_fail';
 export const SELECTED_BRAND_CHANGED = 'brand_selected_change';
 
 export const CATEGORY_LIST_FETCH = 'category_list_fetch';

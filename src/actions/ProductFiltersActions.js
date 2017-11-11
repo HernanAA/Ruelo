@@ -40,17 +40,18 @@ const makeFilteredUrl = (filter) => {
 
         const brand = api.getFilterBrandId();
         filter.selectedBrand.map((item) => {
-            url = url + brand + item.id;
+            console.log(item)
+            url = url + brand + item;
         })
 
         const category = api.getFilterCategoryId();
         filter.selectedCategory.map((item) => {
-            url = url + category + item.id;
+            url = url + category + item;
         })
 
         const subCategory = api.getFilterSubcategoryId();
         filter.selectedSubCategory.map((item) => {
-            url = url + subCategory + item.id;
+            url = url + subCategory + item;
         })
         console.log(url)
         return url;
@@ -61,6 +62,10 @@ export const filteredProductListFetch = () => {
     return (dispatch, getState) => {
         
         const url = makeFilteredUrl(getState().productFilters)
+
+        // return (dispatch) => {
+        //     PRODUCT_LIST_FETCH_SUCCESS
+        // }
 
         return dispatch(genericListFetch(
             PRODUCT_LIST_FETCH,
@@ -94,12 +99,32 @@ export const selectedCategoryChanged = (selected) => {
     });
 }
 
+export const categoryListFetch = () => {
+    return (dispatch) => {
+        return dispatch(genericListFetch(
+            CATEGORY_LIST_FETCH,
+            CATEGORY_LIST_FETCH_SUCCESS,
+            CATEGORY_LIST_FETCH_FAIL,
+            api.getCategoryListlUrl()))
+    }
+};
+
 export const selectedSubCategoryChanged = (selected) => {
     return ({
         type: SELECTED_SUBCATEGORY_CHANGED,
         payload: selected
     });
 }
+
+export const subcategoryListFetch = () => {
+    return (dispatch) => {
+        return dispatch(genericListFetch(
+            SUBCATEGORY_LIST_FETCH,
+            SUBCATEGORY_LIST_FETCH_SUCCESS,
+            SUBCATEGORY_LIST_FETCH_FAIL,
+            api.getSubcategoryListUrl()))
+    }
+};
 
 export const selectedCodeChanged = (selected) => {
     return ({

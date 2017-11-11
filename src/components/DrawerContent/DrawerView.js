@@ -12,18 +12,25 @@ import IconIonic from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../../styles'
 import { Multiselect, InputWithIcon } from '../common';
+import { Spinner } from '../common';
 
 export default class DrawerView extends Component {
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        <LinearGradient colors={[Styles.colors.darkerBlue,
+        {/* <LinearGradient colors={[Styles.colors.darkerBlue,
           '#4c669f', '#3b5998',
           Styles.colors.darkerBlue]}
           style={styles.headerContainer}>
           <Text style={styles.headerText}></Text>
-        </LinearGradient>
+        </LinearGradient> */}
+        {(this.props.brandFetching || this.props.categoryFetching || this.props.subCategoryFetching) && 
+          <Spinner style={styles.spinner} size="small" />  
+        }
+        <View style={styles.headerContainer}>
+          <Image style={styles.headerImage} source={require('./../../Images/logo.png')} />
+        </View>
 
         <InputWithIcon
           style={{ height: 50 }}
@@ -73,7 +80,7 @@ export default class DrawerView extends Component {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button style={styles.button} 
+          <Button style={styles.button}
             onPress={() => this.props.filteredProductListFetch()}
             title={"Buscar"} />
         </View>
@@ -88,12 +95,23 @@ const styles = {
     flex: 1,
     backgroundColor: Styles.colors.darkGray
   },
+  spinner:{
+    position:'absolute',
+    bottom: 0,
+    top:0,
+    left:0,
+    right:0
+  },
   headerContainer: {
     height: 132,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: Styles.colors.white,
     marginBottom: 8,
   },
+  headerImage: {
+    resizeMode: 'cover',
+},
   headerText: {
     fontSize: 40,
     fontWeight: '900',
@@ -108,7 +126,7 @@ const styles = {
     height: 50,
     paddingTop: 10,
   },
-  button:{
+  button: {
     backgroundColor: Styles.colors.lighterBlue
   },
   multiselectContainer: (selectedItems) => {

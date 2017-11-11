@@ -32,7 +32,7 @@ var api = {
 		return this.filterDescription;
 	},
 
-	getfilterCode(){
+	getFilterCode(){
 		return this.filterCode;
 	},
 
@@ -49,9 +49,19 @@ var api = {
 	},
 
 
-	getBrandListlUrl: function(){
-		return this.baseAddress + "marcas/"
+	getBrandListlUrl(){
+		return this.baseAddress + "marca/"
 	},
+
+	getCategoryListlUrl(){
+		return this.baseAddress + "rubro/"
+	},
+
+	getSubcategoryListUrl(){
+		return this.baseAddress + "subrubro/"
+	},
+
+	
 }
 
 module.exports = api;
