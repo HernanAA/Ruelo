@@ -21,7 +21,7 @@ const Multiselect = ( props ) => {
           selectedItemTextColor={Styles.colors.gray}
           selectedItemIconColor={Styles.colors.gray}
           itemTextColor="#000"
-          searchInputStyle={{}}
+          searchInputStyle={{fontSize: 24}}
           submitButtonColor={Styles.colors.darkGray}
           submitButtonText="Aceptar"
           //Color texto Titulo.

@@ -98,7 +98,7 @@ const styles = {
         bottom: 0,
         left: 10,
         right: 10,
-        fontSize: 10,
+        fontSize: 14,
         color: Styles.colors.black,
         paddingHorizontal: 10,
     },

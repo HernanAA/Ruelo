@@ -13,11 +13,11 @@ const InputWithIcon = (props) => {
                 style={{ marginRight: 10 }}
             />
             <TextInput
-                onChangeText={searchTerm => props.fieldTextChanged({searchTerm})}
+                onChangeText={searchTerm => props.fieldTextChanged(searchTerm)}
                 placeholder={props.placeholder}
                 placeholderTextColor={props.fieldText === '' ? Styles.colors.gray : Styles.colors.black}
                 underlineColorAndroid="transparent"
-                style={[props.fieldText === '' ? { fontSize: 16 } : { fontSize: 20 }, { flex: 1, fontSize: 18 }]}
+                style={[props.fieldText === '' ? { fontSize: 16 } : { fontSize: 22 }, { flex: 1}]}
             />
             <TouchableOpacity onPress={() => props.fieldTextChanged('')}>
                 <IconIonic

@@ -10,6 +10,7 @@ import Utils from '../../helpers/utils'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconIonic from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import { Actions } from 'react-native-router-flux';
 import Styles from '../../styles'
 import { Multiselect, InputWithIcon } from '../common';
 import { Spinner } from '../common';
@@ -25,8 +26,8 @@ export default class DrawerView extends Component {
           style={styles.headerContainer}>
           <Text style={styles.headerText}></Text>
         </LinearGradient> */}
-        {(this.props.brandFetching || this.props.categoryFetching || this.props.subCategoryFetching) && 
-          <Spinner style={styles.spinner} size="small" />  
+        {(this.props.brandFetching || this.props.categoryFetching || this.props.subCategoryFetching) &&
+          <Spinner style={styles.spinner} size="small" />
         }
         <View style={styles.headerContainer}>
           <Image style={styles.headerImage} source={require('./../../Images/logo.png')} />
@@ -80,9 +81,14 @@ export default class DrawerView extends Component {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button style={styles.button}
-            onPress={() => this.props.filteredProductListFetch()}
-            title={"Buscar"} />
+          <TouchableOpacity style={styles.button}
+            onPress={() => {
+              Actions.drawerClose()
+              this.props.filteredProductListFetch()
+            }}
+          >
+            <Text style={styles.buttonText}>BUSCAR</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
 
@@ -95,12 +101,12 @@ const styles = {
     flex: 1,
     backgroundColor: Styles.colors.darkGray
   },
-  spinner:{
-    position:'absolute',
+  spinner: {
+    position: 'absolute',
     bottom: 0,
-    top:0,
-    left:0,
-    right:0
+    top: 0,
+    left: 0,
+    right: 0
   },
   headerContainer: {
     height: 132,
@@ -111,7 +117,7 @@ const styles = {
   },
   headerImage: {
     resizeMode: 'cover',
-},
+  },
   headerText: {
     fontSize: 40,
     fontWeight: '900',
@@ -127,7 +133,14 @@ const styles = {
     paddingTop: 10,
   },
   button: {
-    backgroundColor: Styles.colors.lighterBlue
+    height: 40,
+    backgroundColor: Styles.colors.lighterBlue,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  buttonText:{
+    fontSize: 20,
+    fontWeight: '500'
   },
   multiselectContainer: (selectedItems) => {
     var style = {
