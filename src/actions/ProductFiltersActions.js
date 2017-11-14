@@ -71,7 +71,8 @@ export const filteredProductListFetch = () => {
             PRODUCT_LIST_FETCH,
             PRODUCT_LIST_FETCH_SUCCESS,
             PRODUCT_LIST_FETCH_FAIL,
-            url))
+            url,
+            " los productos filtrados"))
     }
 };
 
@@ -88,7 +89,8 @@ export const brandListFetch = () => {
             BRAND_LIST_FETCH,
             BRAND_LIST_FETCH_SUCCESS,
             BRAND_LIST_FETCH_FAIL,
-            api.getBrandListlUrl()))
+            api.getBrandListlUrl(),
+            " las marcas"))
     }
 };
 
@@ -105,7 +107,8 @@ export const categoryListFetch = () => {
             CATEGORY_LIST_FETCH,
             CATEGORY_LIST_FETCH_SUCCESS,
             CATEGORY_LIST_FETCH_FAIL,
-            api.getCategoryListlUrl()))
+            api.getCategoryListlUrl(),
+            " los rubros"))
     }
 };
 
@@ -122,7 +125,8 @@ export const subcategoryListFetch = () => {
             SUBCATEGORY_LIST_FETCH,
             SUBCATEGORY_LIST_FETCH_SUCCESS,
             SUBCATEGORY_LIST_FETCH_FAIL,
-            api.getSubcategoryListUrl()))
+            api.getSubcategoryListUrl(),
+            " los subrubros"))
     }
 };
 

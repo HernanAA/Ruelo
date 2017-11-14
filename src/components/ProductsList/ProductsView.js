@@ -41,7 +41,7 @@ class ProductsView extends Component {
                 <View style={styles.screen}>
                     {title}
                     <View style={styles.errorContainer}>
-                        <Text> {this.props.error} </Text>
+                        <Text style={{marginHorizontal: 20}}> {this.props.error} </Text>
                     </View>
                 </View>
             )

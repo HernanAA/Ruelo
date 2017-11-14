@@ -23,7 +23,8 @@ export const productListFetch = () => {
             PRODUCT_LIST_FETCH,
             PRODUCT_LIST_FETCH_SUCCESS,
             PRODUCT_LIST_FETCH_FAIL,
-            api.getProductListlUrl()))
+            api.getProductListlUrl(),
+            "el listado de productos. Por favor, verifique su conexion a internet."))
     }
 };
 

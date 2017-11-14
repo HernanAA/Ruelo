@@ -1,4 +1,4 @@
-export const genericListFetch = (_type, typeSuccess, typeFail, url) => {
+export const genericListFetch = (_type, typeSuccess, typeFail, url, errorText) => {
     return (dispatch) => {
         dispatch({ type: _type });
 
@@ -19,8 +19,8 @@ export const genericListFetch = (_type, typeSuccess, typeFail, url) => {
                 }
             })
             .catch((error) => {
-                console.error(error)
-                dispatch({ type: typeFail, payload: { error: 'Ha ocurrido un error al cargar: ' + _type } })
+                //console.error(error)
+                dispatch({ type: typeFail, payload: { error: 'Ha ocurrido un error al cargar ' + errorText } })
             })
     }
 };
