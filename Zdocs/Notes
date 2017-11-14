@@ -2,6 +2,8 @@ gradlew assembleRelease
 jarsigner -verbose -keystore "C:\Users\herna\Documents\Rect Proyects\Ruelo\android\my-keystore.keystore" "C:\Users\herna\Documents\Rect Proyects\Ruelo\android\app\build\outputs\apk\app-release-unsigned.apk"  ruelo
 zipalign -f -v 4 "C:\Users\herna\Documents\Rect Proyects\Ruelo\android\app\build\outputs\apk\app-release-unsigned.apk" "C:\Users\herna\Documents\Rect Proyects\Ruelo\android\app\build\outputs\apk\app-aligned.apk"
 
+generar icono: en carpeta de la app ejecutar "app-icon generate"
+
 keytool -genkey -v -keystore my-keystore.keystore -alias ruelo -keyalg RSA -validity 10000
 Enter keystore password:
 Re-enter new password:
